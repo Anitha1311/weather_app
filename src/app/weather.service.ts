@@ -15,8 +15,13 @@ export class WeatherService {
   temperature:ITemperature;
   dayWiseMap: any;
   dayTileList: Array<IDayTile>;
+  chartdetails: Array<any>;
+  tempArray: Array<any>;
   constructor(private httpService: Http) {
     this.dayWiseMap = {};
+    this.chartdetails=[];
+    this.dayTileList = [];
+  
   }
 
   updateDayInfoFor(dayNum: number) {
@@ -50,13 +55,13 @@ export class WeatherService {
 
   }
   cclick(){
-    console.log(this.temperature.temperatureInCelcius);
+    //console.log(this.temperature.temperatureInCelcius);
 
     return this.temperature.temperatureInCelcius;
       
   }
   fclick(){
-    console.log(this.temperature.temperatureInFahrenheit);
+    //console.log(this.temperature.temperatureInFahrenheit);
             
     return this.temperature.temperatureInFahrenheit;
 
@@ -130,8 +135,16 @@ export class WeatherService {
           }
         });
         console.log(this.dayTileList);
+        const currentDayDetails = this.dayWiseMap[new Date().getDay()];
+        console.log(currentDayDetails);
+        this.chartdetails = currentDayDetails.map(tempInfo => {
+          return [moment(tempInfo.dt * 1000).format('dddd, h:mm a'), tempInfo.main.temp]
+        })
+        console.log("chardata",this.chartdetails);
+      
       });
-    // Build data structure for the tiles
+     
+    }; 
+  
   }
 
-}

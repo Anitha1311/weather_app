@@ -14,10 +14,10 @@ export class TemperatureComponent implements OnInit {
 
   ngOnInit() {
   }
-  onCelciusClick() { return this.weatherService.cclick();
+  onCelciusClick() {  this.weatherService.cclick();
 
   }
-  onFarenheitClick() {return this.weatherService.fclick();
+  onFarenheitClick() { this.weatherService.fclick();
   }
 
 }

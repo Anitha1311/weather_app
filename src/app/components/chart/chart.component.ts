@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnChanges {
 
   options: any;
+  lineChartData: any;
   constructor() { }
-
-  ngOnInit() {
-    this.options = {
-      title: { text: 'simple chart' },
-      series: [{
-        data: [29.9, 71.5, 106.4, 129.2],
-      }]
+  @Input() chartData;
+  ngOnChanges() {
+    this.lineChartData =  {
+      chartType: 'LineChart',
+      dataTable: [
+        ['Time', 'Temperature'],
+        ...this.chartData
+      ],
+      options: {'title': 'Tasks'},
     };
   }
 

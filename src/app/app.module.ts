@@ -12,7 +12,7 @@ import { TemperatureComponent } from './components/temperature/temperature.compo
 import { TpwComponent } from './components/tpw/tpw.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { DayTileComponent } from './components/day-tile/day-tile.component';
-
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { DayTileComponent } from './components/day-tile/day-tile.component';
     BrowserModule,
     HttpModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    Ng2GoogleChartsModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

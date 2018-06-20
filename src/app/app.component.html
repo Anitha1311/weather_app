@@ -11,10 +11,18 @@
   </div>
 </div>
 <div class="main-container" id="main-con">
+  <div>
   <app-summary [summaryInfo]="weatherService.summary"></app-summary>
+  </div>
+  <div>
   <app-temperature [tempInfo]="weatherService.temperature"></app-temperature>
+  </div>
+  <div>
   <app-tpw [tpwInfo]="weatherService.tpw"></app-tpw>
-  <app-chart></app-chart>
+  </div>
+  <div>
+  <app-chart [chartData]="weatherService.chartdetails"></app-chart>
+  </div>
   <div class="forecast">
     <div class="col-xs-12" id="fore1">
       <div class="row">
